@@ -1,0 +1,58 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Login - Veterinaria Huellitas</title>
+    <link rel="stylesheet" href="{% static 'css/estilos.css' %}">
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="container">
+            <span class="brand">Veterinaria Huellitas</span>
+        </div>
+    </nav>
+
+    <main class="main">
+        <div class="container">
+
+            <div class="card card-small">
+
+                <h2 class="center">Iniciar sesión</h2>
+
+                <form method="POST">
+                    {% csrf_token %}
+
+                    <div class="form-group">
+                        <label>Usuario</label>
+                        <input type="text" name="usuario" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Contraseña</label>
+                        <input type="password" name="password" required>
+                    </div>
+
+                    <button type="submit" class="button button-full">
+                        Iniciar sesión
+                    </button>
+                </form>
+
+                {% if error %}
+                    <div class="alert alert-error">
+                        {{ error }}
+                    </div>
+                {% endif %}
+
+            </div>
+
+        </div>
+    </main>
+
+</body>
+
+</html>

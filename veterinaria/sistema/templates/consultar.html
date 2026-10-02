@@ -1,0 +1,96 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Consultar mascotas - Veterinaria Huellitas</title>
+    <link rel="stylesheet" href="{% static 'css/estilos.css' %}">
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="container">
+            <span class="brand">Veterinaria Huellitas</span>
+
+            <a href="{% url 'inicio' %}" class="button button-light">
+                Inicio
+            </a>
+        </div>
+    </nav>
+
+    <main class="main">
+        <div class="container">
+
+            <div class="card">
+
+                <h2 class="center">Mascotas registradas</h2>
+
+                {% if mascotas %}
+
+                    <div class="table-container">
+
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Dueño</th>
+                                    <th>Teléfono</th>
+                                    <th>Mascota</th>
+                                    <th>Tipo</th>
+                                    <th>Raza</th>
+                                    <th>Edad</th>
+                                    <th>Sexo</th>
+                                    <th>Motivo</th>
+                                    <th>Acción</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+
+                                {% for mascota in mascotas %}
+
+                                    <tr>
+                                        <td>{{ mascota.id }}</td>
+                                        <td>{{ mascota.dueno }}</td>
+                                        <td>{{ mascota.telefono }}</td>
+                                        <td>{{ mascota.mascota }}</td>
+                                        <td>{{ mascota.tipo }}</td>
+                                        <td>{{ mascota.raza }}</td>
+                                        <td>{{ mascota.edad }}</td>
+                                        <td>{{ mascota.sexo }}</td>
+                                        <td>{{ mascota.motivo }}</td>
+
+                                        <td>
+                                            <a href="{% url 'editar' mascota.id %}"
+                                               class="button button-warning">
+                                                Editar
+                                            </a>
+                                        </td>
+                                    </tr>
+
+                                {% endfor %}
+
+                            </tbody>
+                        </table>
+
+                    </div>
+
+                {% else %}
+
+                    <div class="alert alert-info center">
+                        No hay mascotas registradas.
+                    </div>
+
+                {% endif %}
+
+            </div>
+
+        </div>
+    </main>
+
+</body>
+
+</html>

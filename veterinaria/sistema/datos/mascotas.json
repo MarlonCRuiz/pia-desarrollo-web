@@ -1,0 +1,13 @@
+[
+    {
+        "id": 1,
+        "dueno": "Marlon Ruiz",
+        "telefono": "8112345678",
+        "mascota": "Rocky",
+        "tipo": "Perro",
+        "raza": "Labrador",
+        "edad": "5",
+        "sexo": "Macho",
+        "motivo": "Consulta general"
+    }
+]

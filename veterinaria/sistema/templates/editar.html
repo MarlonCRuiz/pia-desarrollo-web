@@ -1,0 +1,131 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Editar mascota - Veterinaria Huellitas</title>
+    <link rel="stylesheet" href="{% static 'css/estilos.css' %}">
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="container">
+            <span class="brand">Veterinaria Huellitas</span>
+
+            <a href="{% url 'consultar' %}" class="button button-light">
+                Volver
+            </a>
+        </div>
+    </nav>
+
+    <main class="main">
+        <div class="container">
+
+            <div class="card card-medium">
+
+                <h2 class="center">Editar mascota</h2>
+
+                <form method="POST">
+                    {% csrf_token %}
+
+                    <div class="form-group">
+                        <label>Nombre del dueño</label>
+                        <input type="text"
+                               name="dueno"
+                               value="{{ mascota.dueno }}"
+                               required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Teléfono</label>
+                        <input type="text"
+                               name="telefono"
+                               value="{{ mascota.telefono }}"
+                               required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Nombre de la mascota</label>
+                        <input type="text"
+                               name="mascota"
+                               value="{{ mascota.mascota }}"
+                               required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Tipo de mascota</label>
+
+                        <select name="tipo">
+                            <option value="Perro"
+                                {% if mascota.tipo == "Perro" %}selected{% endif %}>
+                                Perro
+                            </option>
+
+                            <option value="Gato"
+                                {% if mascota.tipo == "Gato" %}selected{% endif %}>
+                                Gato
+                            </option>
+
+                            <option value="Otro"
+                                {% if mascota.tipo == "Otro" %}selected{% endif %}>
+                                Otro
+                            </option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Raza</label>
+                        <input type="text"
+                               name="raza"
+                               value="{{ mascota.raza }}"
+                               required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Edad</label>
+                        <input type="number"
+                               name="edad"
+                               value="{{ mascota.edad }}"
+                               required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Sexo</label>
+
+                        <select name="sexo">
+                            <option value="Macho"
+                                {% if mascota.sexo == "Macho" %}selected{% endif %}>
+                                Macho
+                            </option>
+
+                            <option value="Hembra"
+                                {% if mascota.sexo == "Hembra" %}selected{% endif %}>
+                                Hembra
+                            </option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Motivo de consulta</label>
+                        <input type="text"
+                               name="motivo"
+                               value="{{ mascota.motivo }}"
+                               required>
+                    </div>
+
+                    <button type="submit" class="button button-full">
+                        Guardar cambios
+                    </button>
+                </form>
+
+            </div>
+
+        </div>
+    </main>
+
+</body>
+
+</html>

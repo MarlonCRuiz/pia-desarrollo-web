@@ -1,0 +1,55 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Veterinaria Huellitas</title>
+    <link rel="stylesheet" href="{% static 'css/estilos.css' %}">
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="container">
+            <span class="brand">Veterinaria Huellitas</span>
+        </div>
+    </nav>
+
+    <main class="main">
+        <div class="container">
+
+            <div class="center">
+                <h1>Veterinaria Huellitas</h1>
+                <p class="subtitle">Sistema de registro de mascotas</p>
+            </div>
+
+            <div class="cards">
+
+                <div class="card option-card">
+                    <h3>Registrar mascota</h3>
+                    <p>Registra una nueva mascota en el sistema.</p>
+
+                    <a href="{% url 'registrar' %}" class="button">
+                        Registrar
+                    </a>
+                </div>
+
+                <div class="card option-card">
+                    <h3>Consultar mascotas</h3>
+                    <p>Consulta y actualiza los registros existentes.</p>
+
+                    <a href="{% url 'consultar' %}" class="button">
+                        Consultar
+                    </a>
+                </div>
+
+            </div>
+
+        </div>
+    </main>
+
+</body>
+
+</html>
